@@ -1,5 +1,6 @@
 import React from 'react';
 import { FileImage } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { ConversionType } from '../types';
 
 interface NavigationBarProps {
@@ -27,9 +28,9 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <FileImage className="w-8 h-8 text-blue-500" />
-            <h1 className="text-2xl font-bold text-blue-500">
-              {currentConversion}
-            </h1>
+            <Link to="/" className="text-2xl font-bold text-blue-500 hover:text-blue-600">
+              CloudConvert
+            </Link>
           </div>
 
           {/* Navigation Buttons */}
@@ -49,6 +50,12 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 {conversion}
               </button>
             ))}
+            <Link 
+              to="/blogs" 
+              className="px-4 py-2 rounded-lg font-medium text-gray-600 hover:bg-gray-100 transition-colors duration-200"
+            >
+              Blogs
+            </Link>
           </nav>
         </div>
       </div>

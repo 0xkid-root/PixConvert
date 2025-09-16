@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Upload, Download, FileImage, Trash2, UploadCloud as CloudUpload, Shield, Zap, Globe, Star, CheckCircle, Users, Clock, Award } from 'lucide-react';
+import { Upload, Download, Trash2 } from 'lucide-react';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import FileUploadZone from './components/FileUploadZone';
 import ConversionProgress from './components/ConversionProgress';
 import ConversionResults from './components/ConversionResults';
@@ -9,13 +10,22 @@ import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import { ConvertedFile, ConversionType } from './types';
+import BlogCards from './components/BlogCards';
 
-function App() {
+// Article components
+import PngToJpgArticle from './components/PngToJpgArticle';
+import JpgToPngArticle from './components/JpgToPngArticle';
+import WebPConversionsArticle from './components/WebPConversionsArticle';
+import BMPConversionsArticle from './components/BMPConversionsArticle';
+
+// Main app content (image converter)
+const ImageConverter: React.FC = () => {
   const [files, setFiles] = useState<File[]>([]);
   const [convertedFiles, setConvertedFiles] = useState<ConvertedFile[]>([]);
   const [isConverting, setIsConverting] = useState(false);
   const [progress, setProgress] = useState(0);
   const [currentConversion, setCurrentConversion] = useState<ConversionType>('JPG to PNG');
+  const navigate = useNavigate();
 
   const handleFilesSelect = (selectedFiles: File[]) => {
     setFiles(selectedFiles);
@@ -151,7 +161,10 @@ function App() {
       {/* Navigation Bar */}
       <NavigationBar 
         currentConversion={currentConversion}
-        onConversionChange={handleConversionTypeChange}
+        onConversionChange={(conversion) => {
+          handleConversionTypeChange(conversion);
+          navigate('/');
+        }}
       />
 
       <main className="max-w-6xl mx-auto px-4 py-8">
@@ -258,6 +271,45 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
+
+// Blog page component
+const BlogPage: React.FC = () => {
+  const navigate = useNavigate();
+  
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">Blog</h1>
+          <button 
+            onClick={() => navigate('/')}
+            className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200"
+          >
+            Back to Converter
+          </button>
+        </div>
+        <BlogCards />
+      </div>
+      <Footer />
+    </div>
+  );
+};
+
+// Main App component with routing
+const App: React.FC = () => {
+  return (
+    <div>
+      <Routes>
+        <Route path="/" element={<ImageConverter />} />
+        <Route path="/blogs" element={<BlogPage />} />
+        <Route path="/blog/png-to-jpg" element={<PngToJpgArticle />} />
+        <Route path="/blog/jpg-to-png" element={<JpgToPngArticle />} />
+        <Route path="/blog/webp-conversions" element={<WebPConversionsArticle />} />
+        <Route path="/blog/bmp-conversions" element={<BMPConversionsArticle />} />
+      </Routes>
+    </div>
+  );
+};
 
 export default App;
