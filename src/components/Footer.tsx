@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <FileImage className="w-8 h-8 text-blue-400" />
-              <h3 className="text-2xl font-bold">ImageConverter Pro</h3>
+              <h3 className="text-2xl font-bold">CloudConvert</h3>
             </div>
             <p className="text-gray-300 mb-6 leading-relaxed">
               The world's most trusted image converter. Fast, secure, and completely free. 
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
               <span className="text-gray-300">for image conversion enthusiasts worldwide</span>
             </div>
             <div className="text-gray-400 text-sm">
-              © 2025 ImageConverter Pro. All rights reserved.
+              © 2025 CloudConvert. All rights reserved.
             </div>
           </div>
         </div>
