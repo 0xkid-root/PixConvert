@@ -32,6 +32,17 @@ const BlogCards = () => {
             </Link>
           </div>
         ))}
+
+         <div className="bg-white rounded-lg shadow-md p-6 transition-transform duration-300 hover:shadow-lg">
+          <h2 className="text-xl font-semibold mb-2">CloudeConvert</h2>
+          <p className="text-gray-600 mb-6">Best free image converter for all formats</p>
+          <button 
+            onClick={() => window.location.href = '/blogs/cloudeconvert'}
+            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
+          >
+            Read More
+          </button>
+        </div>
       </div>
     </div>
   );

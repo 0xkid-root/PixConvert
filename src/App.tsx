@@ -10,6 +10,7 @@ import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import { ConvertedFile, ConversionType } from './types';
+
 import BlogCards from './components/BlogCards';
 
 // Article components
@@ -17,6 +18,9 @@ import PngToJpgArticle from './components/PngToJpgArticle';
 import JpgToPngArticle from './components/JpgToPngArticle';
 import WebPConversionsArticle from './components/WebPConversionsArticle';
 import BMPConversionsArticle from './components/BMPConversionsArticle';
+
+import CloudeConvertArticle from './components/CloudeConvertArticle'; // New import
+
 
 // Main app content (image converter)
 const ImageConverter: React.FC = () => {
@@ -307,6 +311,8 @@ const App: React.FC = () => {
         <Route path="/blog/jpg-to-png" element={<JpgToPngArticle />} />
         <Route path="/blog/webp-conversions" element={<WebPConversionsArticle />} />
         <Route path="/blog/bmp-conversions" element={<BMPConversionsArticle />} />
+        <Route path="/blogs/cloudeconvert" element={<CloudeConvertArticle />} /> {/* New route */}
+
       </Routes>
     </div>
   );

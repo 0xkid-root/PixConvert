@@ -1,7 +1,6 @@
 // src/components/PngToJpgArticle.tsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'; // For managing meta tags
 import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import { ConversionType } from '../types';
@@ -21,10 +20,11 @@ const PngToJpgArticle: React.FC = () => {
       {/* SEO Meta Tags */}
       
 
-      <NavigationBar
+<NavigationBar 
         currentConversion={currentConversion}
         onConversionChange={handleConversionChange}
       />
+      
 
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">
         <div className="flex justify-between items-center mb-8">
