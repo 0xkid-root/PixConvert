@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { useState } from 'react';
 import NavigationBar from '@/components/NavigationBar';
 import Footer from '@/components/Footer';
 import { ConversionType } from '@/types';
@@ -21,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 export default function BMPConversionsArticle() {
-  const [currentConversion] = useState<ConversionType>('BMP to PNG');
+  const currentConversion: ConversionType = 'BMP to PNG';
 
   const handleConversionChange = (conversion: ConversionType) => {
     console.log('Conversion changed to:', conversion);
