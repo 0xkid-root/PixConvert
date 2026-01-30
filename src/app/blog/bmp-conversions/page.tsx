@@ -2,7 +2,6 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import NavigationBar from '@/components/NavigationBar';
 import Footer from '@/components/Footer';
-import { ConversionType } from '@/types';
 
 export const metadata: Metadata = {
   title: 'BMP Conversion Guide - Efficient Image Format Transfers',
@@ -20,17 +19,19 @@ export const metadata: Metadata = {
 };
 
 export default function BMPConversionsArticle() {
-  const currentConversion: ConversionType = 'BMP to PNG';
+  // For static blog pages, we'll use a fixed conversion type
+  const currentConversion = 'BMP to PNG';
 
-  const handleConversionChange = (conversion: ConversionType) => {
-    console.log('Conversion changed to:', conversion);
+  // Since this is a static page, we don't need interactive conversion changes
+  const handleConversionChange = () => {
+    // This is just a placeholder since we don't need real interactivity on blog pages
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <NavigationBar 
-        currentConversion={currentConversion}
-        onConversionChange={handleConversionChange}
+        currentConversion={currentConversion as any}
+        showConversionButtons={false}
       />
       
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">

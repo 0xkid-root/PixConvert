@@ -155,10 +155,7 @@ const ImageConverter: React.FC = () => {
       {/* Navigation Bar */}
       <NavigationBar 
         currentConversion={currentConversion}
-        onConversionChange={(conversion) => {
-          handleConversionTypeChange(conversion);
-          router.push('/');
-        }}
+        showConversionButtons={true}
       />
 
       <main className="max-w-6xl mx-auto px-4 py-8">

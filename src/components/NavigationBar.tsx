@@ -6,13 +6,13 @@ import Link from 'next/link';
 import { ConversionType } from '@/types';
 
 interface NavigationBarProps {
-  currentConversion: ConversionType;
-  onConversionChange: (conversion: ConversionType) => void;
+  currentConversion?: ConversionType | string;
+  showConversionButtons?: boolean;
 }
 
 const NavigationBar: React.FC<NavigationBarProps> = ({ 
-  currentConversion, 
-  onConversionChange 
+  currentConversion,
+  showConversionButtons = true
 }) => {
   const conversions: ConversionType[] = [
     'JPG to PNG',
@@ -37,10 +37,10 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
 
           {/* Navigation Buttons */}
           <nav className="flex items-center space-x-2">
-            {conversions.map((conversion) => (
-              <button
+            {showConversionButtons && conversions.map((conversion) => (
+              <Link
                 key={conversion}
-                onClick={() => onConversionChange(conversion)}
+                href="/#"
                 className={`
                   px-4 py-2 rounded-lg font-medium transition-colors duration-200
                   ${currentConversion === conversion
@@ -50,7 +50,7 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
                 `}
               >
                 {conversion}
-              </button>
+              </Link>
             ))}
             <Link 
               href="/blogs" 

@@ -21,17 +21,19 @@ export const metadata: Metadata = {
 };
 
 export default function WebPConversionsArticle() {
-  const currentConversion: ConversionType = 'WebP to JPEG';
+  // For static blog pages, we'll use a fixed conversion type
+  const currentConversion = 'WebP to JPEG';
 
-  const handleConversionChange = (conversion: ConversionType) => {
-    console.log('Conversion changed to:', conversion);
+  // Since this is a static page, we don't need interactive conversion changes
+  const handleConversionChange = () => {
+    // This is just a placeholder since we don't need real interactivity on blog pages
   };
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <NavigationBar 
         currentConversion={currentConversion}
-        onConversionChange={handleConversionChange}
+        showConversionButtons={false}
       />
       
       <main className="flex-grow max-w-4xl mx-auto px-4 py-8">
