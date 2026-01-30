@@ -3,7 +3,6 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { useState } from 'react';
 import NavigationBar from '@/components/NavigationBar';
 import Footer from '@/components/Footer';
 import { ConversionType } from '@/types';
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default function WebPConversionsArticle() {
-  const [currentConversion] = useState<ConversionType>('WebP to JPEG');
+  const currentConversion: ConversionType = 'WebP to JPEG';
 
   const handleConversionChange = (conversion: ConversionType) => {
     console.log('Conversion changed to:', conversion);

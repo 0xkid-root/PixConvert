@@ -5,7 +5,6 @@ import Link from 'next/link';
 import BlogCards from '@/components/BlogCards';
 import NavigationBar from '@/components/NavigationBar';
 import Footer from '@/components/Footer';
-import { useState } from 'react';
 import { ConversionType } from '@/types';
 
 export const metadata: Metadata = {
@@ -24,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogsPage() {
-  const [currentConversion] = useState<ConversionType>('JPG to PNG');
+  const currentConversion: ConversionType = 'JPG to PNG';
 
   const handleConversionChange = (conversion: ConversionType) => {
     console.log('Conversion changed to:', conversion);

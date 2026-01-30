@@ -2,7 +2,6 @@
 
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { useState } from 'react';
 import NavigationBar from '@/components/NavigationBar';
 import Footer from '@/components/Footer';
 import { ConversionType } from '@/types';
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default function PngToJpgArticle() {
-  const [currentConversion] = useState<ConversionType>('PNG to JPG');
+  const currentConversion: ConversionType = 'PNG to JPG';
 
   const handleConversionChange = (conversion: ConversionType) => {
     console.log('Conversion changed to:', conversion);
